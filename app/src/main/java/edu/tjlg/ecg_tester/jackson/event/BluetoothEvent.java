@@ -10,7 +10,7 @@ public class BluetoothEvent {
         this.state = state;
     }
 
-    public static final int BLUETOOTH_DISABLED= 1;//蓝牙不可用
+    public static final int BLUETOOTH_DISABLED= -1;//蓝牙不可用
     public static final int SEARCHING= 1;//正在搜索
     public static final int FIND_DEVICE= 2;//发现蓝牙设备
     public static final int CONNECTING= 3;//正在连接

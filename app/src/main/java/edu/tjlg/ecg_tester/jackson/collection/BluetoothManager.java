@@ -34,13 +34,12 @@ public class BluetoothManager {
     static final String SPP_UUID = "00001101-0000-1000-8000-00805F9B34FB";
     private String ECGDeviceName = "HMSoft";
 
-    Logger logger = new Logger("BluetoothManager");
 
     private BluetoothAdapter btAdapt;
-
     public BluetoothSocket btSocket;
-
     private boolean isConnecting ;
+
+    private Logger logger = new Logger("BluetoothManager");
 
     private BluetoothManager(){}
 
@@ -61,6 +60,7 @@ public class BluetoothManager {
 
 
     public void searchDevices(){
+        logger.e("searchDevices");
         EventBus.getDefault().post(new BluetoothEvent(BluetoothEvent.SEARCHING));
         btAdapt = BluetoothAdapter.getDefaultAdapter();
         if (btAdapt.getState() == BluetoothAdapter.STATE_OFF) {// 如果蓝牙还没开启
@@ -75,6 +75,8 @@ public class BluetoothManager {
     }
 
     public void registeBroadcast(Context context){
+        logger.e("registeBroadcast");
+
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothDevice.ACTION_FOUND);// 用BroadcastReceiver来取得搜索结果
         intentFilter.addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED);
@@ -84,11 +86,16 @@ public class BluetoothManager {
     }
 
     public void release(Context context){
+        logger.e("release");
+
         isConnecting = false;
         context.unregisterReceiver(searchDevices);
     }
 
     public void disConnect(){
+        logger.e("disConnect");
+
+        setConnecting(false);
         try {
             if(btSocket!=null)
             btSocket.close();
@@ -105,6 +112,8 @@ public class BluetoothManager {
     private final BroadcastReceiver searchDevices = new BroadcastReceiver() {
 
         public void onReceive(Context context, Intent intent) {
+            logger.e("disConnect","isConnecting",isConnecting);
+
             if(isConnecting)return;
             String action = intent.getAction();
             //搜索设备时，取得设备的MAC地址
@@ -128,7 +137,7 @@ public class BluetoothManager {
 
     private void connectECGDevice(String address){
         EventBus.getDefault().post(new BluetoothEvent(BluetoothEvent.CONNECTING));
-        logger.e("", "---- 准备配对！");
+        logger.e("connectECGDevice 准备配对");
         UUID uuid = UUID.fromString(SPP_UUID);
         BluetoothDevice btDev = btAdapt.getRemoteDevice(address);
         try {
@@ -145,7 +154,8 @@ public class BluetoothManager {
                 return;
             }
         }
-        isConnecting = true;
+        logger.e("连接成功");
+        setConnecting(true);
         EventBus.getDefault().post(new BluetoothEvent(BluetoothEvent.CONNECTING_SUCCESS));
     }
 
@@ -154,6 +164,7 @@ public class BluetoothManager {
         Observable.timer(10, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
             @Override
             public void accept(@NonNull Long aLong) throws Exception {
+                logger.e("定时任务到时 isConnecting",isConnecting);
                 if(!isConnecting){
                     EventBus.getDefault().post(new BluetoothEvent(BluetoothEvent.CONNECTING_TIME_OUT));
                 }

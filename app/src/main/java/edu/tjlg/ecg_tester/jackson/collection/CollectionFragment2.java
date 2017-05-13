@@ -10,10 +10,13 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import edu.tjlg.ecg_tester.R;
+import edu.tjlg.ecg_tester.utils.Logger;
 
 
 @SuppressLint("NewApi")
 public class CollectionFragment2 extends Fragment implements CollectionContract.View, View.OnClickListener {
+
+
 
 	private TextView tv_state;//状态aaa
 	private Button btn_disconnect;
@@ -25,15 +28,22 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 	private CollectionPresenter collectionPresenter;
 	private View ll_celiang;
 
+	private Logger logger = new Logger("CollectionFragment2");
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.collect_data2, null);
 		bindView(view);
 		setListener();
 		initView();
+		return view;
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
 		collectionPresenter = CollectionPresenter.newInstance(this);
 		collectionPresenter.initBluetooth(getActivity());
-		return view;
 	}
 
 	private void bindView(View view) {
@@ -60,6 +70,7 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 
 	@Override
 	public void showConnecting() {
+		logger.e("showConnecting");
 		ll_celiang.setVisibility(View.GONE);
 		btn_connect.setVisibility(View.GONE);
 		tv_state.setText("正在连接");
@@ -67,6 +78,8 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 
 	@Override
 	public void showConnectSuccess() {
+		logger.e("showConnectSuccess");
+
 		ll_celiang.setVisibility(View.VISIBLE);
 		btn_connect.setVisibility(View.GONE);
 		tv_state.setText("连接蓝牙成功");
@@ -75,6 +88,8 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 
 	@Override
 	public void showConnectError() {
+		logger.e("showConnectError");
+
 		ll_celiang.setVisibility(View.GONE);
 		btn_connect.setVisibility(View.VISIBLE);
 		tv_state.setText("连接蓝牙失败");
@@ -82,12 +97,16 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 
 	@Override
 	public void showCollecting() {
+		logger.e("showCollecting");
+
 		tv_state.setText("正在采集");
 
 	}
 
 	@Override
 	public void showBluetoothDisabled() {
+		logger.e("showBluetoothDisabled");
+
 		ll_celiang.setVisibility(View.GONE);
 		btn_connect.setVisibility(View.VISIBLE);
 		tv_state.setText("蓝牙连接失败");
@@ -95,12 +114,37 @@ public class CollectionFragment2 extends Fragment implements CollectionContract.
 
 	@Override
 	public void showFindDevice() {
+		logger.e("showFindDevice");
+
 		tv_state.setText("发现设备");
 	}
 
 	@Override
 	public void showDisConnect() {
+		logger.e("showDisConnect");
 
+		ll_celiang.setVisibility(View.GONE);
+		btn_connect.setVisibility(View.VISIBLE);
+		tv_state.setText("断开连接");
+	}
+
+	@Override
+	public void showCollectFinished() {
+		logger.e("showCollectFinished");
+
+	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		collectionPresenter.release(getActivity());
+	}
+
+	@Override
+	public void showSearching() {
+		logger.e("showSearching");
+
+		tv_state.setText("正在搜索");
 	}
 
 	@Override

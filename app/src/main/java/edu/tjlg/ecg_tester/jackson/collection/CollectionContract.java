@@ -22,6 +22,9 @@ public class CollectionContract {
 
         void showDisConnect();//断开连接
 
+        void showCollectFinished();//采集完成
+
+        void showSearching();//正在搜索
     }
 
 
