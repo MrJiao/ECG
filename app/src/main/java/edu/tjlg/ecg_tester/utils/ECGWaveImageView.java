@@ -102,7 +102,7 @@ public class ECGWaveImageView extends ImageView {
 			} else {
 				Toast.makeText(mContext, "没有数据！", Toast.LENGTH_LONG).show();
 			}
-	 	canvas.clipRect(0,0,bWidth/2,bHeight);
+	 	canvas.clipRect(0,0,bWidth/4,bHeight);
 		canvas.save(Canvas.ALL_SAVE_FLAG);
 
 	
