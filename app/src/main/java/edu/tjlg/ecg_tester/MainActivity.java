@@ -8,10 +8,12 @@ import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -62,6 +64,25 @@ public class MainActivity extends Activity {
 			mApplication.setPhoneNum(mapUser.get("phoneNum"));
 			mApplication.setillness(mapUser.get("illness"));
 		}
+
+		findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_MAIN);
+				intent.addCategory(Intent.CATEGORY_LAUNCHER);
+				ComponentName comp = new ComponentName("com.lvrenyang.printescheme",
+						"printescheme.AppStart");
+				intent.setComponent(comp);
+
+				int launchFlags = Intent.FLAG_ACTIVITY_NEW_TASK
+						| Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED;
+
+				intent.setFlags(launchFlags);
+				intent.setAction("android.intent.action.VIEW");
+				startActivity(intent);
+			}
+		});
+
 	}
 	
 	private void showWriteUserInfoDialog(){
