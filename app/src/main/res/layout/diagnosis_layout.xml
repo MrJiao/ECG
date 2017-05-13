@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dip" >
+
+                <RelativeLayout
+                    android:id="@+id/diagnosis_message_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_marginBottom="10dip"
+                    android:background="@drawable/selector_display_btn_bg" >
+
+                    <TextView
+                        android:id="@+id/diagnosis_message_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Message"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/diagnosis_phone_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:layout_marginBottom="10dip"
+                    android:layout_marginLeft="30dip"
+                    android:layout_toRightOf="@id/diagnosis_message_rl"
+                    android:background="@drawable/selector_display_btn_bg" >
+
+                    <TextView
+                        android:id="@+id/diagnosis_phone_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="CallPhone"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_beginTime_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/diagnosis_time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:text="Time"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/diagnosis_beginTime_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/diagnosis_time_tv"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_phoneNum_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/diagnosis_phoneNum_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:text="Phone"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/diagnosis_phoneNum_ed"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_toRightOf="@id/diagnosis_phoneNum_tv"
+                    android:hint=""
+                    android:inputType="phone"
+                    android:singleLine="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_illness_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/diagnosis_illness_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:text="Illness"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <Spinner
+                    android:id="@+id/diagnosis_illness_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_toRightOf="@id/diagnosis_illness_tv" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_condition_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/diagnosis_condition_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:text="Condition"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <Spinner
+                    android:id="@+id/diagnosis_condition_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dip"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="5dip"
+                    android:layout_toRightOf="@id/diagnosis_condition_tv" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_other_rl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/diagnosis_other_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginTop="10dip"
+                    android:text="Others"
+                    android:textColor="#000000"
+                    android:textSize="25sp" />
+
+                <EditText
+                    android:id="@+id/diagnosis_other_ed"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/diagnosis_other_tv"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:layout_marginTop="5dip"
+                    android:hint="" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/diagnosis_send_rl"
+                android:layout_width="80dip"
+                android:layout_height="40dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dip"
+                android:layout_marginBottom="20dip"
+                android:background="@drawable/selector_display_btn_bg" >
+
+                <TextView
+                    android:id="@+id/diagnosis_send_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Send"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

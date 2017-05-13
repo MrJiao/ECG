@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFCFC"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <FrameLayout
+        android:id="@+id/replace_fragmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e3e3e3" />
+
+    <RadioGroup
+        android:id="@+id/activity_main_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/ecg_collect"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/icon_collection"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="心电采集"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/ecg_history"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/icon_history"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="历史记录"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/user_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/icon_user_info"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="个人信息"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/about"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/icon_about"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="关于软件"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+</LinearLayout>

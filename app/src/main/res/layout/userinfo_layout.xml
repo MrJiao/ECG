@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <include layout="@layout/base_head"
+        android:id="@+id/title_view" />
+    
+    <RelativeLayout
+        android:id="@+id/name_rl"
+        android:background="#e3e3e3"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/title_view" >
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="姓名"
+            android:textColor="#333333"
+            android:layout_centerVertical="true"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/name_ed"
+            android:layout_alignParentRight="true"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:maxLength="4"
+            android:textSize="14sp"
+            android:hint=""
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gender_rl"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/name_rl" >
+
+        <TextView
+            android:id="@+id/gender_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:text="性别"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/gender_spinner"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/age_rl"
+        android:background="#e3e3e3"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/gender_rl">
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="年龄"
+            android:layout_centerVertical="true"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/age_ed"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:maxLength="3"
+            android:textSize="14sp"
+            android:hint=""
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/phoneNum_rl"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_below="@id/age_rl" >
+
+        <TextView
+            android:id="@+id/phoneNum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:text="电话"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/phoneNum_ed"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="20dp"
+            android:hint=""
+            android:maxLength="11"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:inputType="phone"
+            android:singleLine="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_info_btn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/btn_bg" >
+
+        <TextView
+            android:id="@+id/update_info_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="修 改"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/illness_rl"
+        android:background="#e3e3e3"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="104dp"
+        android:layout_below="@id/phoneNum_rl">
+
+        <TextView
+            android:id="@+id/illness_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="病史描述"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/illness_ed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/illness_tv"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dip"
+            android:hint="" />
+    </RelativeLayout>
+
+</RelativeLayout>
