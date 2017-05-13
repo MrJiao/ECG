@@ -18,9 +18,9 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import edu.tjlg.ecg_tester.application.ECGApplication;
 import edu.tjlg.ecg_tester.database.DbOperate;
 import edu.tjlg.ecg_tester.fragment.AboutFragment;
-import edu.tjlg.ecg_tester.fragment.CollectionFragment;
 import edu.tjlg.ecg_tester.fragment.HistoryFragment;
 import edu.tjlg.ecg_tester.fragment.UserInfoFragment;
+import edu.tjlg.ecg_tester.jackson.collection.CollectionFragment2;
 import edu.tjlg.ecg_tester.utils.L;
 
 public class MainActivity extends Activity {
@@ -146,7 +146,7 @@ public class MainActivity extends Activity {
 				
 				switch (checkedId) {
 				case R.id.ecg_collect:
-					mTransaction.replace(R.id.replace_fragmentLayout, new CollectionFragment());
+					mTransaction.replace(R.id.replace_fragmentLayout, new CollectionFragment2());
 					break;
 				case R.id.ecg_history:
 					mTransaction.replace(R.id.replace_fragmentLayout, new HistoryFragment());
@@ -167,7 +167,7 @@ public class MainActivity extends Activity {
 	private void initView(){
 		mFragmentManager = getFragmentManager();
 		mTransaction = mFragmentManager.beginTransaction();
-		mTransaction.replace(R.id.replace_fragmentLayout, new CollectionFragment());
+		mTransaction.replace(R.id.replace_fragmentLayout, new CollectionFragment2());
 		mTransaction.commit();
 	}
 }

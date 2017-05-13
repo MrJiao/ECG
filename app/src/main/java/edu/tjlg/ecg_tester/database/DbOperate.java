@@ -2,7 +2,8 @@ package edu.tjlg.ecg_tester.database;
 
 import java.util.Map;
 import edu.tjlg.ecg_tester.R;
-import edu.tjlg.ecg_tester.fragment.CollectionFragment;
+import edu.tjlg.ecg_tester.jackson.collection.CollectionFragment2;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -82,7 +83,7 @@ public class DbOperate {
 				dialog.dismiss();
 				FragmentManager fragmentManager = ((Activity)context).getFragmentManager();
 				FragmentTransaction transaction = fragmentManager.beginTransaction();
-				transaction.replace(R.id.replace_fragmentLayout, new CollectionFragment());
+				transaction.replace(R.id.replace_fragmentLayout, new CollectionFragment2());
 				transaction.commit();
 //				Intent intent = new Intent();
 //				intent.setClass(context, CollectDataActivity.class);
