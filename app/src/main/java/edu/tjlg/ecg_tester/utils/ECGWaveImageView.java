@@ -102,8 +102,9 @@ public class ECGWaveImageView extends ImageView {
 			} else {
 				Toast.makeText(mContext, "没有数据！", Toast.LENGTH_LONG).show();
 			}
+	 	canvas.clipRect(0,0,bWidth/2,bHeight);
 		canvas.save(Canvas.ALL_SAVE_FLAG);
-		
+
 	
 
 		File f = new File("/sdcard/DCIM/"+bitName+".png");
@@ -119,8 +120,7 @@ public class ECGWaveImageView extends ImageView {
 
 	 Matrix matrix = new Matrix();
 	 matrix.postScale(-1, 1); // 镜像水平翻转
-	 Bitmap convertBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getScaledWidth(canvas)/2, bitmap.getScaledHeight(canvas), matrix, true);
-
+	 Bitmap convertBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getScaledWidth(canvas), bitmap.getScaledHeight(canvas), matrix, true);
 
 	 convertBmp.compress(Bitmap.CompressFormat.PNG, 100, fOut);
 	 bitmap.recycle();
