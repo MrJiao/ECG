@@ -119,7 +119,9 @@ public class ECGWaveImageView extends ImageView {
 
 	 Matrix matrix = new Matrix();
 	 matrix.postScale(-1, 1); // ¾µÏñË®Æ½·­×ª
-	 Bitmap convertBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getScaledWidth(canvas), bitmap.getScaledHeight(canvas), matrix, true);
+	 Bitmap convertBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getScaledWidth(canvas)/2, bitmap.getScaledHeight(canvas), matrix, true);
+
+
 	 convertBmp.compress(Bitmap.CompressFormat.PNG, 100, fOut);
 	 bitmap.recycle();
 

@@ -39,20 +39,17 @@ public class GetBlueToothECGDataTask2 extends AsyncTask<String, Integer,String>{
 
 	@Override
 	protected void onPreExecute() {
-		// TODO Auto-generated method stub
 		super.onPreExecute();
 	}
 
 	@Override
 	protected void onProgressUpdate(Integer... progresses) {
-		// TODO Auto-generated method stub
 		super.onProgressUpdate(progresses);
 		progressBarHorizontal.setProgress(progresses[0]);
 	}
 
 	@Override
 	protected String doInBackground(String... params) {
-		// TODO Auto-generated method stub
 		//		filestr = params[0];
 		cm = new CommonManage(context);
 		String filestr = cm.creatECGFile(fos, fi);
@@ -89,7 +86,6 @@ public class GetBlueToothECGDataTask2 extends AsyncTask<String, Integer,String>{
 				fos.close(); 
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally{
 

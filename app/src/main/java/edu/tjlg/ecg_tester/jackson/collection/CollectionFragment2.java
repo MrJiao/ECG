@@ -16,8 +16,6 @@ import edu.tjlg.ecg_tester.utils.Logger;
 @SuppressLint("NewApi")
 public class CollectionFragment2 extends Fragment implements CollectionContract.View, View.OnClickListener {
 
-
-
 	private TextView tv_state;//״̬aaa
 	private Button btn_disconnect;
 	private Button btn_measuring;

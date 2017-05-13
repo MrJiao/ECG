@@ -23,8 +23,6 @@ import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
-import static android.R.attr.action;
-
 /**
  * Created by jackson on 2017/5/13.
  */
