@@ -16,6 +16,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import edu.tjlg.ecg_tester.jackson.util.FileUtil;
+
 public class ECGWaveImageView extends ImageView {
 	private Context mContext;
 	private Bitmap bitmap,bmp;
@@ -121,10 +123,10 @@ public class ECGWaveImageView extends ImageView {
 	 Matrix matrix = new Matrix();
 	 matrix.postScale(-1, 1); // ¾µÏñË®Æ½·­×ª
 	 Bitmap convertBmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getScaledWidth(canvas), bitmap.getScaledHeight(canvas), matrix, true);
-	 Bitmap bitmap = Bitmap.createBitmap(convertBmp, 0, 0, this.bitmap.getScaledWidth(canvas) , this.bitmap.getScaledHeight(canvas)/ 2);
-	 convertBmp.recycle();
-	 bitmap.compress(Bitmap.CompressFormat.PNG, 50, fOut);
-	 bitmap.recycle();
+
+	 FileUtil.saveBitmap(convertBmp,bitName,bitmap.getScaledWidth(canvas),bitmap.getScaledHeight(canvas));
+
+	 convertBmp.compress(Bitmap.CompressFormat.PNG, 50, fOut);
 
 		try {
 			fOut.flush();

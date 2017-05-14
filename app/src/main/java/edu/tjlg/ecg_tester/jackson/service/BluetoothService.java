@@ -20,8 +20,4 @@ public class BluetoothService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-
-
-
-
 }
