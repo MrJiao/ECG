@@ -30,7 +30,7 @@ public class FileUtil {
             public void subscribe(@NonNull ObservableEmitter<Bitmap> e) throws Exception {
                 Bitmap b1 = Bitmap.createBitmap(bitmap, 0, 0,width , height/ 2);
                 e.onNext(b1);
-                Bitmap b2 = Bitmap.createBitmap(bitmap, 0, height/ 2,width ,height );
+                Bitmap b2 = Bitmap.createBitmap(bitmap, 0, height/ 2,width ,height/2 );
                 e.onNext(b2);
                 e.onComplete();
             }

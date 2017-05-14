@@ -140,8 +140,7 @@ public class ECGWaveImageView extends ImageView {
 		}
 	 
  }
- 
-	public void recycleBitmap() {
+ 	public void recycleBitmap() {
 		System.out.println("µ÷ÓÃ-------------");
 		if (bitmap != null && !bitmap.isRecycled()) {
 			System.out.println("-----Ö´ÐÐ--------");
