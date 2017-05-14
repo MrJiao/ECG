@@ -39,13 +39,8 @@ public class FileUtil {
             @Override
             public void accept(@NonNull Bitmap bitmap) throws Exception {
                 i++;
-                FileOutputStream fOut = null;
                 File f = new File("/sdcard/DCIM/print/"+fileName+"("+i+")"+".png");
-                try {
-                    fOut = new FileOutputStream(f);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                FileOutputStream fOut =  new FileOutputStream(f);
                 bitmap.compress(Bitmap.CompressFormat.PNG, 50, fOut);
                 fOut.flush();
                 fOut.close();
